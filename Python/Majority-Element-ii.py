@@ -33,10 +33,11 @@ class Solution:
             else:
                 c1, c2 = c1 - 1, c2 - 1
 
+        result = []
         for n in (n1, n2):
             if n is not None and nums.count(n) > len(nums)/3:
-                return n
-        return
+                result.append(n)
+        return result
 
 if __name__ == "__main__":
     print Solution().majorityElement([1, 2, 3, 4, 5, 5, 4, 5, 7, 5, 6])
