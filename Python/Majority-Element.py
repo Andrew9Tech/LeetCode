@@ -8,19 +8,18 @@
 #
 
 class Solution:
-    # @param num, a list of integers
-    # @return an integer
-    def majorityElement(self, num):
-        idx, cnt = 0, 1
-        
-        for i in xrange(1, len(num)):
-            if num[idx] == num[i]:
-                cnt += 1
+    # @param {integer[]} nums
+    # @return {integer}
+    def majorityElement(self, nums):
+        index, count = 0, 1
+        for i in xrange(len(nums)):
+            if nums[index] == nums[i]:
+                count += 1
             else:
-                cnt -= 1
-                if cnt == 0:
-                    idx, cnt = i, 1
-        return num[idx]
+                count -= 1
+                if count == 0:
+                    index, count = i, 1
+        return nums[index]
 
 if __name__ == "__main__":
     print Solution().majorityElement([1, 2, 3, 4, 5, 5, 5, 5, 5, 5, 6])
