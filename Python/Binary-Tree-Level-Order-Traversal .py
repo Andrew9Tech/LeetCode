@@ -1,5 +1,3 @@
-# Time:  O(n)
-# Space: O(n)
 #
 # Given a binary tree, return the level order traversal of its nodes' values. 
 # (ie, from left to right, level by level).
@@ -25,6 +23,8 @@ class TreeNode:
         self.left = None
         self.right = None
 
+# Time:  O(n)
+# Space: O(n)
 class Solution:
     # @param root, a tree node
     # @return a list of lists of integers
