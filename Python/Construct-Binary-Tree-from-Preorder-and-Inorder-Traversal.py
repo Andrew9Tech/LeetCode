@@ -1,6 +1,4 @@
-# Time:  O(n)
-# Space: O(n)
-#
+
 # Given preorder and inorder traversal of a tree, construct the binary tree.
 # 
 # Note:
@@ -14,7 +12,23 @@ class TreeNode:
         self.left = None
         self.right = None
 
+# 递归解法
 class Solution:
+    # @param preorder, a list of integers
+    # @param inorder, a list of integers
+    # @return a tree node
+    def buildTree(self, preorder, inorder):
+        if not inorder: return None # inorder is empty
+        root = TreeNode(preorder[0])
+        rootPos = inorder.index(preorder[0])
+        root.left = self.buildTree(preorder[1 : 1 + rootPos], inorder[ : rootPos])
+        root.right = self.buildTree(preorder[rootPos + 1 : ], inorder[rootPos + 1 : ])
+        return root
+
+
+# Time:  O(n)
+# Space: O(n)
+class Solution1:
     # @param preorder, a list of integers
     # @param inorder, a list of integers
     # @return a tree node
@@ -36,7 +50,7 @@ class Solution:
 if __name__ ==  "__main__":
     preorder = [1, 2, 3]
     inorder = [2, 1, 3]
-    result = Solution().buildTree(preorder, inorder)
+    result = Solution1().buildTree(preorder, inorder)
     print result.val
     print result.left.val
     print result.right.val
