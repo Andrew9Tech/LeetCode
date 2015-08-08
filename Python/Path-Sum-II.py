@@ -31,27 +31,23 @@ class Solution:
     # @param sum, an integer
     # @return a list of lists of integers
     def pathSum(self, root, sum):
-        return self.pathSumRecu([], [], root, sum)
-
-    
-    def pathSumRecu(self, result, cur, root, sum):
+        return self.Help(root, sum, [], [])
+        
+    def Help(self, root, sum, cur, result):
         if root is None:
             return result
-        
-        if root.left is None and root.right is None and root.val == sum:
+        if root.left == None and root.right == None and root.val == sum:
             result.append(cur + [root.val])
-        
         cur.append(root.val)
-        self.pathSumRecu(result, cur, root.left, sum - root.val)
-        self.pathSumRecu(result, cur,root.right, sum - root.val)
+        self.Help(root.left,  sum - root.val, cur, result)
+        self.Help(root.right, sum - root.val, cur, result)
         cur.pop()
         return result
-    
+
 if __name__ == "__main__":
     root = TreeNode(5)
     root.left = TreeNode(4); root.right = TreeNode(8);
     root.left.left = TreeNode(11);root.right.left = TreeNode(13);root.right.right = TreeNode(4);
     root.left.left.left = TreeNode(7);root.left.left.right = TreeNode(2);
     root.right.right.left = TreeNode(5);root.right.right.right = TreeNode(1);
-    
     print Solution().pathSum(root, 22)
