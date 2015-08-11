@@ -61,6 +61,7 @@ class Solution2:
             self.list_head = root
             return root
         
+        
 if __name__ == "__main__":
     root = TreeNode(1)
     root.left = TreeNode(2)
