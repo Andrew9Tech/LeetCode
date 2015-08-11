@@ -25,7 +25,7 @@ class Solution:
         while start < end:
             nums[start], nums[end - 1] = nums[end - 1], nums[start]
             start += 1; end -= 1
-  
+
   if __name__ == '__main__':
     nums = [1,2,3,4,5,6,7]
     Solution().rotate(nums, 3)
